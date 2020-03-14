@@ -7,10 +7,6 @@
     <match Class="PatchOperationSequence">
       <success>Always</success>
         <operations>
-          <li Class="PatchOperationTest">
-            <xpath>/Defs/RoyalTitleDef[defName="Esquire" or defName="Knight" or defName="Praetor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Bed_DoubleErgonomic"]</xpath>
-            <success>Invert</success>
-          </li>
           <!--Patch for only VFE-Core(Players)-->
           <li Class="PatchOperationAdd">
             <xpath>/Defs/RoyalTitleDef[defName="Esquire" or defName="Knight" or defName="Praetor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things</xpath>
@@ -32,55 +28,92 @@
               <li>Bed_Kingsize</li>
             </value>
           </li>
-          <li Class="PatchOperationRemove">
-            <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count"]/bedroomRequirements/li[@Class="RoomRequirement_Thing"]</xpath>
-          </li>
-          <li Class="PatchOperationRemove">
-            <xpath>/Defs/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]/bedroomRequirements/li[@Class="RoomRequirement_Thing"]</xpath>
-          </li>
-          <li Class="PatchOperationAdd">
-            <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count"]/bedroomRequirements</xpath>
-            <value>
-              <li Class="RoomRequirement_ThingAnyOf">
-                <things>
-                  <li>EndTable</li>
-                  <li>Table_RoyalEndTable</li>
-                </things>
+          <li Class="PatchOperationConditional">
+            <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="EndTable"]</xpath>
+          <nomatch Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+              <li Class="PatchOperationRemove">
+                <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count"]/bedroomRequirements/li[@Class="RoomRequirement_Thing"]</xpath>
               </li>
-            </value>
-          </li>
-          <li Class="PatchOperationAdd">
-            <xpath>/Defs/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]/bedroomRequirements</xpath>
-            <value>
-              <li Class="RoomRequirement_ThingAnyOf">
-                <things>
-                  <li>EndTable</li>
-                  <li>Table_RoyalEndTable</li>
-                </things>
+              <li Class="PatchOperationRemove">
+                <xpath>/Defs/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]/bedroomRequirements/li[@Class="RoomRequirement_Thing"]</xpath>
               </li>
-            </value>
-          </li>
-          <li Class="PatchOperationAdd">
-            <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count"]/bedroomRequirements</xpath>
-            <value>
-              <li Class="RoomRequirement_ThingAnyOf">
-                <things>
-                  <li>Dresser</li>
-                  <li>Table_RoyalDresser</li>
-                </things>
+              <li Class="PatchOperationAdd">
+                <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count"]/bedroomRequirements</xpath>
+                <value>
+                  <li Class="RoomRequirement_ThingAnyOf">
+                    <things>
+                      <li>EndTable</li>
+                      <li>Table_RoyalEndTable</li>
+                    </things>
+                  </li>
+                </value>
               </li>
-            </value>
-          </li>
-          <li Class="PatchOperationAdd">
-            <xpath>/Defs/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]/bedroomRequirements</xpath>
-            <value>
-              <li Class="RoomRequirement_ThingAnyOf">
-                <things>
-                  <li>Dresser</li>
-                  <li>Table_RoyalDresser</li>
-                </things>
+              <li Class="PatchOperationAdd">
+                <xpath>/Defs/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]/bedroomRequirements</xpath>
+                <value>
+                  <li Class="RoomRequirement_ThingAnyOf">
+                    <things>
+                      <li>EndTable</li>
+                      <li>Table_RoyalEndTable</li>
+                    </things>
+                  </li>
+                </value>
               </li>
-            </value>
+              <li Class="PatchOperationAdd">
+                <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count"]/bedroomRequirements</xpath>
+                <value>
+                  <li Class="RoomRequirement_ThingAnyOf">
+                    <things>
+                      <li>Dresser</li>
+                      <li>Table_RoyalDresser</li>
+                    </things>
+                  </li>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>/Defs/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]/bedroomRequirements</xpath>
+                <value>
+                  <li Class="RoomRequirement_ThingAnyOf">
+                    <things>
+                      <li>Dresser</li>
+                      <li>Table_RoyalDresser</li>
+                    </things>
+                  </li>
+                </value>
+              </li>
+            </operations>
+          </nomatch>
+          <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+              <li Class="PatchOperationAdd">
+                <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="EndTable"]</xpath>
+                <value>
+                      <li>Table_RoyalEndTable</li>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>/Defs/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="EndTable"]</xpath>
+                <value>
+                      <li>Table_RoyalEndTable</li>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Dresser"]</xpath>
+                <value>
+                      <li>Table_RoyalDresser</li>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>/Defs/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Dresser"]</xpath>
+                <value>
+                      <li>Table_RoyalDresser</li>
+                </value>
+              </li>
+            </operations>
+          </match>
           </li>
           <!--Checked VFE-Spacer-->
           <li Class="PatchOperationTest">
