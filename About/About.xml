@@ -17,6 +17,7 @@
 		<li>VanillaExpanded.VFECore</li>
     <li>VanillaExpanded.VFESpacer</li>
     <li>Solaris.FurnitureBase</li>
+    <li>com.yayo.unlockWorkingEmperor</li>
 	</loadAfter>
 	<packageId>RoyaltyVFECom.HawnHan</packageId>
 	<description>
@@ -24,6 +25,8 @@
     - Vanilla Furniture Expanded - Core
     - Vanilla Furniyure Expanded - Spacer(Dependence on Vanilla Furniture Expanded - Core)
     - Gloomy Furniture
+    
+    Compatible with &lt;b&gt;Unlock Working Emperor&lt;/b&gt;
 
     &lt;b&gt;This patch work whatever you used both or just used one of them.&lt;/b&gt;
 
@@ -32,13 +35,15 @@
     - 原版家具拓展 - 太空组件(需求原版家具拓展 - 核心作为前置)
     - 复古家具
 
+    兼容&lt;b&gt;Unlock Working Emperor&lt;/b&gt;
+    
     &lt;b&gt;该补丁无论是你同时使用这三个Mod或是只是用其中一个，都可以正常工作。&lt;/b&gt;
 
     &lt;b&gt;I didn't change game setting,just share more ways to you.&lt;/b&gt;
     &lt;b&gt;我没有修改原有的游戏设定，这个Mod只是给你更多选择。&lt;/b&gt;
 
     English Desription:
-    Just make Royalty compatible with Vanilla Furniture Expanded.
+    Just make Royalty compatible with Expanded Furniture.
     &lt;b&gt;Vanilla Furniture Expanded - Core(Players and NPCs)&lt;/b&gt;
     - ergonomic double bed——Esquire,Knight,Praetor
     - royal poster bed——Esquire,Knight,Praetor,and the above
@@ -56,7 +61,7 @@
     Vanilli furnitures still effective.But enjoy life always is a good thing.So I ignore limit the bed.
 
     中文简介：
-    DLC与原版家具拓展无法完美契合，这让我很不舒服，于是我制作了这个简单的补丁。
+    DLC与拓展家具无法完美契合，这让我很不舒服，于是我制作了这个简单的补丁。
     &lt;b&gt;原版家具拓展（兼容玩家殖民者与NPC）&lt;/b&gt;
     - 人体工学双人床——可用于爵士，骑士和伯爵
     - 豪华四柱床——可用于爵士，骑士和伯爵及以上

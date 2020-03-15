@@ -111,6 +111,74 @@
             </operations>
           </match>
         </li>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke"]</xpath>
+          <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+              <li Class="PatchOperationAdd">
+                <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="RoyalBed"]</xpath>
+                <value>
+                  <li>GL_ClassyDoubleBed</li>
+                </value>
+              </li>
+              <li Class="PatchOperationConditional">
+                <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="EndTable"]</xpath>
+                <nomatch Class="PatchOperationSequence">
+                  <success>Always</success>
+                  <operations>
+                    <li Class="PatchOperationRemove">
+                      <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_Thing"]</xpath>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                      <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements</xpath>
+                      <value>
+                        <li Class="RoomRequirement_ThingAnyOf">
+                          <things>
+                            <li>EndTable</li>
+                            <li>RGK_EndTable</li>
+                            <li>RGK_EndTableWithLamp</li>
+                            <li>RGK_EndTableWithLampE</li>
+                          </things>
+                        </li>
+                      </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                      <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements</xpath>
+                      <value>
+                        <li Class="RoomRequirement_ThingAnyOf">
+                          <things>
+                            <li>Dresser</li>
+                            <li>RGK_Dresser</li>
+                          </things>
+                        </li>
+                      </value>
+                    </li>
+                  </operations>
+                </nomatch>
+                <match Class="PatchOperationSequence">
+                  <success>Always</success>
+                  <operations>
+                    <li Class="PatchOperationAdd">
+                      <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="EndTable"]</xpath>
+                      <value>
+                        <li>RGK_EndTable</li>
+                        <li>RGK_EndTableWithLamp</li>
+                        <li>RGK_EndTableWithLampE</li>
+                      </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                      <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Dresser"]</xpath>
+                      <value>
+                        <li>RGK_Dresser</li>
+                      </value>
+                    </li>
+                  </operations>
+                </match>
+              </li>
+            </operations>
+          </match>
+        </li>
       </operations>
     </match>
   </Operation>
