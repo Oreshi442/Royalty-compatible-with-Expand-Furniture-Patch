@@ -5,12 +5,16 @@ Supported:
 - Vanilla Furniyure Expanded - Spacer(Dependence on Vanilla Furniture Expanded - Core)
 - Gloomy Furniture
 
+Compatible with Unlock Working Emperor
+
 This patch work whatever you used both or just used one of them.
 
 支持：
 - 原版家具拓展 - 核心
 - 原版家具拓展 - 太空组件(需求原版家具拓展 - 核心作为前置)
 - 复古家具
+
+兼容Unlock Working Emperor
 
 该补丁无论是你同时使用这三个Mod或是只是用其中一个，都可以正常工作。
 
