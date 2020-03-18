@@ -115,68 +115,197 @@
               </operations>
             </match>
           </li>
+          <!--Checked Piano-->
+          <li Class="PatchOperationConditional">
+            <xpath>/Defs/RoyalTitleDef[defName="Knight"]/throneRoomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Harp"]</xpath>
+            <nomatch Class="PatchOperationSequence">
+              <success>Always</success>
+              <operations>
+                <li Class="PatchOperationRemove">
+                  <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count"]/throneRoomRequirements/li[@Class="RoomRequirement_Thing" and thingDef="Harp" or thingDef="Harpsichord" or thingDef="Piano"]</xpath>
+                </li>
+                <li Class="PatchOperationAdd">
+                  <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor"]/throneRoomRequirements</xpath>
+                  <value>
+                    <li Class="RoomRequirement_ThingAnyOf">
+                      <things>
+                        <li>Harp</li>
+                        <li>Harpsichord</li>
+                        <li>Piano</li>
+                        <li>Joy_Piano</li>
+                      </things>
+                    </li>
+                  </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                  <xpath>/Defs/RoyalTitleDef[defName="Baron"]/throneRoomRequirements</xpath>
+                  <value>
+                    <li Class="RoomRequirement_ThingAnyOf">
+                      <things>
+                        <li>Harpsichord</li>
+                        <li>Piano</li>
+                        <li>Joy_Piano</li>
+                      </things>
+                    </li>
+                  </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                  <xpath>/Defs/RoyalTitleDef[defName="Count"]/throneRoomRequirements</xpath>
+                  <value>
+                    <li Class="RoomRequirement_ThingAnyOf">
+                      <things>
+                        <li>Piano</li>
+                        <li>Joy_Piano</li>
+                      </things>
+                    </li>
+                  </value>
+                </li>
+                <!--Patch Piano for NPCs-->
+                <li Class="PatchOperationRemove">
+                  <xpath>/Defs/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]/throneRoomRequirements/li[@Class="RoomRequirement_Thing" and thingDef="Piano"]</xpath>
+                </li>
+                <li Class="PatchOperationAdd">
+                  <xpath>/Defs/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]/throneRoomRequirements</xpath>
+                  <value>
+                    <li Class="RoomRequirement_ThingAnyOf">
+                      <things>
+                        <li>Piano</li>
+                        <li>Joy_Piano</li>
+                      </things>
+                    </li>
+                  </value>
+                </li>
+              </operations>
+            </nomatch>
+            <match Class="PatchOperationSequence">
+              <success>Always</success>
+              <operations>
+                <li Class="PatchOperationAdd">
+                  <xpath>/Defs/RoyalTitleDef[defName="Knight" or defName="Praetor"]/throneRoomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Harp"]</xpath>
+                  <value>
+                        <li>Harpsichord</li>
+                        <li>Piano</li>
+                        <li>Joy_Piano</li>
+                  </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                  <xpath>/Defs/RoyalTitleDef[defName="Baron"]/throneRoomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Harpsichord"]</xpath>
+                  <value>
+                        <li>Piano</li>
+                        <li>Joy_Piano</li>
+                  </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                  <xpath>/Defs/RoyalTitleDef[defName="Count"]/throneRoomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Piano"]</xpath>
+                  <value>
+                    <li>Joy_Piano</li>
+                  </value>
+                </li>
+                <!--Patch Piano for NPCs-->
+                <li Class="PatchOperationAdd">
+                  <xpath>/Defs/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]/throneRoomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Piano"]</xpath>
+                  <value>
+                    <li>Joy_Piano</li>
+                  </value>
+                </li>
+              </operations>
+            </match>
+          </li>
           <!--Checked Unlock Working Emperor-->
           <li Class="PatchOperationConditional">
             <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke"]</xpath>
             <match Class="PatchOperationSequence">
               <success>Always</success>
               <operations>
-              <li Class="PatchOperationAdd">
-                <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="RoyalBed"]</xpath>
-                <value>
-                  <li>Bed_Kingsize</li>
-                </value>
-              </li>
-              <li Class="PatchOperationConditional">
-                <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="EndTable"]</xpath>
-                <nomatch Class="PatchOperationSequence">
-                  <success>Always</success>
-                  <operations>
-                    <li Class="PatchOperationRemove">
-                      <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_Thing"]</xpath>
-                    </li>
-                    <li Class="PatchOperationAdd">
-                      <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements</xpath>
-                      <value>
-                        <li Class="RoomRequirement_ThingAnyOf">
-                          <things>
-                            <li>EndTable</li>
-                            <li>Table_RoyalEndTable</li>
-                          </things>
-                        </li>
-                      </value>
-                    </li>
-                    <li Class="PatchOperationAdd">
-                      <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements</xpath>
-                      <value>
-                        <li Class="RoomRequirement_ThingAnyOf">
-                          <things>
-                            <li>Dresser</li>
-                            <li>Table_RoyalDresser</li>
-                          </things>
-                        </li>
-                      </value>
-                    </li>
-                  </operations>
-                </nomatch>
-                <match Class="PatchOperationSequence">
-                  <success>Always</success>
-                  <operations>
-                    <li Class="PatchOperationAdd">
-                      <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="EndTable"]</xpath>
-                      <value>
-                        <li>Table_RoyalEndTable</li>
-                      </value>
-                    </li>
-                    <li Class="PatchOperationAdd">
-                      <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Dresser"]</xpath>
-                      <value>
-                        <li>Table_RoyalDresser</li>
-                      </value>
-                    </li>
-                  </operations>
-                </match>
-              </li>
+                <li Class="PatchOperationAdd">
+                  <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="RoyalBed"]</xpath>
+                  <value>
+                    <li>Bed_Kingsize</li>
+                  </value>
+                </li>
+                <li Class="PatchOperationConditional">
+                  <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="EndTable"]</xpath>
+                  <nomatch Class="PatchOperationSequence">
+                    <success>Always</success>
+                    <operations>
+                      <li Class="PatchOperationRemove">
+                        <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_Thing"]</xpath>
+                      </li>
+                      <li Class="PatchOperationAdd">
+                        <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements</xpath>
+                        <value>
+                          <li Class="RoomRequirement_ThingAnyOf">
+                            <things>
+                              <li>EndTable</li>
+                              <li>Table_RoyalEndTable</li>
+                            </things>
+                          </li>
+                        </value>
+                      </li>
+                      <li Class="PatchOperationAdd">
+                        <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements</xpath>
+                        <value>
+                          <li Class="RoomRequirement_ThingAnyOf">
+                            <things>
+                              <li>Dresser</li>
+                              <li>Table_RoyalDresser</li>
+                            </things>
+                          </li>
+                        </value>
+                      </li>
+                    </operations>
+                  </nomatch>
+                  <match Class="PatchOperationSequence">
+                    <success>Always</success>
+                    <operations>
+                      <li Class="PatchOperationAdd">
+                        <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="EndTable"]</xpath>
+                        <value>
+                          <li>Table_RoyalEndTable</li>
+                        </value>
+                      </li>
+                      <li Class="PatchOperationAdd">
+                        <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/bedroomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Dresser"]</xpath>
+                        <value>
+                          <li>Table_RoyalDresser</li>
+                        </value>
+                      </li>
+                    </operations>
+                  </match>
+                </li>
+                <li Class="PatchOperationConditional">
+                  <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/throneRoomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Piano"]</xpath>
+                  <nomatch Class="PatchOperationSequence">
+                    <success>Always</success>
+                    <operations>
+                      <li Class="PatchOperationRemove">
+                        <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/throneRoomRequirements/li[@Class="RoomRequirement_Thing" and thingDef="Piano"]</xpath>
+                      </li>
+                      <li Class="PatchOperationAdd">
+                        <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/throneRoomRequirements</xpath>
+                        <value>
+                          <li Class="RoomRequirement_ThingAnyOf">
+                            <things>
+                              <li>Piano</li>
+                              <li>Joy_Piano</li>
+                            </things>
+                          </li>
+                        </value>
+                      </li>
+                    </operations>
+                  </nomatch>
+                  <match Class="PatchOperationSequence">
+                    <success>Always</success>
+                    <operations>
+                      <li Class="PatchOperationAdd">
+                        <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke" or defName="Consul" or defName="Stellarch" or defName="Emperor"]/throneRoomRequirements/li[@Class="RoomRequirement_ThingAnyOf"]/things[li="Piano"]</xpath>
+                        <value>
+                          <li>Joy_Piano</li>
+                        </value>
+                      </li>
+                    </operations>
+                  </match>
+                </li>
               </operations>
             </match>
             <nomatch Class="PatchOperationTest">
@@ -225,6 +354,7 @@
               <li>Table_IlluminatedDresser</li>
             </value>
           </li>
+          <!--Checked Unlock Working Emperor-->
           <li Class="PatchOperationConditional">
             <xpath>/Defs/RoyalTitleDef[@ParentName="BaseEmpireTitlePsycaster" and defName="Duke"]</xpath>
             <match Class="PatchOperationSequence">
